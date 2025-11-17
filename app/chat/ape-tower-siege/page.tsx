@@ -6,5 +6,5 @@ import { useRouter } from "next/navigation"
 export default function ApeTowerSiegeChatPage() {
   const router = useRouter()
 
-  return <MobileChatApeTower onBackClick={() => router.push("/")} />
+  return <MobileChatApeTower onBackClick={() => router.push("/")} characterImage="/gorilla-soldier-city-tower.jpg" />
 }

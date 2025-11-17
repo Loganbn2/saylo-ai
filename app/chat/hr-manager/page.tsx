@@ -10,5 +10,5 @@ export default function HRManagerChatPage() {
     router.push("/")
   }
 
-  return <MobileChatHRManager onBackClick={handleBackClick} />
+  return <MobileChatHRManager onBackClick={handleBackClick} characterImage="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/hr-manager-TACTViXYwMwTYqNNyH37s5TgrrdEVj.avif" />
 }

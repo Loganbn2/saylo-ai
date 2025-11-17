@@ -10,5 +10,5 @@ export default function GamerGuyPage() {
     router.push("/")
   }
 
-  return <MobileChatGamerGuy onBackClick={handleBackClick} />
+  return <MobileChatGamerGuy onBackClick={handleBackClick} characterImage="/gamer-guy-gaming-setup.jpg" />
 }

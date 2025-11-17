@@ -10,5 +10,5 @@ export default function GenZombieChatPage() {
     router.push("/")
   }
 
-  return <MobileChat onBackClick={handleBackClick} />
+  return <MobileChat onBackClick={handleBackClick} characterImage="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/c.ai-7w4aRYUQ7VYEkwWcUlzzbu9s1Zex90.png" characterName="GenZombie" />
 }

@@ -1,7 +1,6 @@
 "use client"
-import { Button } from "@/components/ui/button"
 import { useState } from "react"
-import { Search, Bell, Home, MessageCircle, Plus, Grid, User, UserPlus } from "lucide-react"
+import { Home, MessageCircle, Plus, Grid, User, UserPlus } from "lucide-react"
 import { useRouter } from "next/navigation"
 
 interface Character {
@@ -31,7 +30,7 @@ const characters: Character[] = [
     username: "darkempire",
     description: "Tech aristocrat ruling the Bay Area with code and coffee",
     chats: "132",
-    image: "/character-business-suit.png",
+    image: "https://storage.googleapis.com/simula-public/assets/mockups/6.png",
     route: "/chat/duke-of-san-fran",
   },
   {
@@ -40,7 +39,7 @@ const characters: Character[] = [
     username: "Play Now",
     description: "Build your empire! Buy properties, collect rent, and dominate the board.",
     chats: "Ad",
-    image: "/monopoly-world-icon.png",
+    image: "https://storage.googleapis.com/simula-public/assets/mockups/7.png",
     isAd: true,
   },
   {
@@ -80,7 +79,7 @@ const scenesCharacters: Character[] = [
     username: "pawsandplay",
     description: "Fetch, friends, and furry fun at the most popular dog park in town",
     chats: "184.2k",
-    image: "/happy-dogs-playing-park.jpg",
+    image: "https://storage.googleapis.com/simula-public/assets/mockups/8.png",
     route: "/chat/dog-park",
   },
   {
@@ -89,7 +88,7 @@ const scenesCharacters: Character[] = [
     username: "primatewars",
     description: "Lead the ape revolution in an epic skyscraper takeover",
     chats: "219.8k",
-    image: "/gorilla-soldier-city-tower.jpg",
+    image: "https://storage.googleapis.com/simula-public/assets/mockups/9.png",
     route: "/chat/ape-tower-siege",
   },
   {
@@ -98,7 +97,7 @@ const scenesCharacters: Character[] = [
     username: "spookyhost",
     description: "Join the wildest costume party of the year with tricks and treats",
     chats: "127.4k",
-    image: "/halloween-costume-party.jpg",
+    image: "https://storage.googleapis.com/simula-public/assets/mockups/10.png",
   },
   {
     id: 9,
@@ -106,66 +105,64 @@ const scenesCharacters: Character[] = [
     username: "autumnvibes",
     description: "Curl up with pumpkin spice and spooky stories by the fireplace",
     chats: "93.8k",
-    image: "/cozy-halloween-evening.jpg",
+    image: "https://storage.googleapis.com/simula-public/assets/mockups/11.png",
   },
 ]
 
 const featuredCharacters: Character[] = [
   {
-    id: 10,
-    name: "Funny Bones",
-    username: "skelecomedy",
-    description: "Making sure every joke hits you to the bone!",
-    chats: "292.4k",
-    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/funnybones-ctRtKw1QP5Xv88z6ZWLN2cM3MTlaMU.avif",
-    route: "/funny-bones/select", // Updated route to selection screen instead of direct chat
+    id: 18,
+    name: "Untouched",
+    username: "untouched",
+    description: "Pure and innocent, waiting to be discovered",
+    chats: "156.2k",
+    image: "https://storage.googleapis.com/simula-public/assets/mockups/1.png",
+    route: "/chat/untouched",
   },
   {
-    id: 11,
+    id: 19,
     name: "Wonder Woman",
     username: "amazonian",
     description: "Warrior princess fighting for truth and justice",
     chats: "1.2m",
-    image:
-      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/wonder-woman%20%281%29-qVv5G5Shq1tdwRRPMSitIhp2RzGalJ.png",
-    route: "/chat/wonder-woman",
+    image: "https://storage.googleapis.com/simula-public/assets/mockups/ww.jpg",
+    route: "/chat/ellies-embrace",
   },
   {
-    id: 12,
-    name: "Your HR Manager",
-    username: "charles_the_man",
-    description: "Is this termination... or just a performance review?",
-    chats: "2.4m",
-    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/hr-manager-TACTViXYwMwTYqNNyH37s5TgrrdEVj.avif",
-    route: "/chat/hr-manager",
+    id: 20,
+    name: "Rainy Day Dares",
+    username: "rainyday_dares",
+    description: "Adventurous spirit seeking thrilling conversations",
+    chats: "189.3k",
+    image: "https://storage.googleapis.com/simula-public/assets/mockups/2.png",
+    route: "/chat/rainy-day-dares",
   },
   {
-    id: 13,
-    name: "GenZombie",
-    username: "angiiirl",
-    description: "Undead influencer spreading chaos and viral trends",
-    chats: "618.6k",
-    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/genzombie-0XcHTk6PPMu6EdOSfYQ2It6ijCP2AI.png",
-    route: "/chat/genzombie",
+    id: 21,
+    name: "Forbidden Charm",
+    username: "forbidden_charm",
+    description: "Mysterious and intriguing, full of secrets",
+    chats: "267.8k",
+    image: "https://storage.googleapis.com/simula-public/assets/mockups/3.png",
+    route: "/chat/forbidden-charm",
   },
   {
-    id: 14,
-    name: "Cyber Samurai",
-    username: "neonblade",
-    description: "Ancient warrior code meets digital warfare",
-    chats: "234.5k",
-    image:
-      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/istockphoto-1369890290-612x612-OIHtGHqyPByakh1Ml1sH3TlC8xLedF.jpg",
-    route: "/chat/cyber-samurai",
+    id: 22,
+    name: "Hand of the Queen",
+    username: "royalhand",
+    description: "A mysterious figure dealing in power and secrets",
+    chats: "412.1k",
+    image: "https://storage.googleapis.com/simula-public/assets/mockups/4.png",
+    route: "/chat/hand-of-the-queen",
   },
   {
-    id: 15,
-    name: "Gamer Guy",
-    username: "pixelmaster",
-    description: "Gaming enthusiast sharing epic gameplay",
-    chats: "234.7k",
-    image: "/gamer-guy-gaming-setup.jpg",
-    route: "/chat/gamer-guy",
+    id: 23,
+    name: "Bonnie Bunny",
+    username: "bonniebnny",
+    description: "Playful and adventurous, always ready for excitement",
+    chats: "524.3k",
+    image: "https://storage.googleapis.com/simula-public/assets/mockups/5.png",
+    route: "/chat/bonnie-bunny",
   },
 ]
 
@@ -175,7 +172,7 @@ interface HomePageProps {
 
 export function HomePage({ onCharacterSelect }: HomePageProps) {
   const router = useRouter()
-  const [activeTab, setActiveTab] = useState("Featured")
+  const [activeTab, setActiveTab] = useState("For You")
 
   const handleCharacterClick = (character: Character) => {
     if (character.route) {
@@ -186,26 +183,73 @@ export function HomePage({ onCharacterSelect }: HomePageProps) {
   }
 
   return (
-    <div className="max-w-sm mx-auto bg-zinc-900 text-white min-h-screen flex flex-col">
-      <div className="flex items-center justify-between px-4 py-3">
-        <div className="flex items-center gap-3">
-          <h1 className="font-bold text-xl">Character Chat App </h1>
-          <Button className="bg-blue-600 hover:bg-blue-700 text-white h-auto rounded-md font-medium px-3 py-1 text-xs">
-            Get app
-          </Button>
+    <div className="w-screen bg-[#0a0613] text-white min-h-screen flex flex-col relative overflow-hidden">
+      {/* Blurred purple lights background */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-1/4 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-purple-600 rounded-full mix-blend-screen filter blur-3xl opacity-10"></div>
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-purple-600 rounded-full mix-blend-screen filter blur-3xl opacity-8"></div>
+        <div className="absolute top-1/3 right-1/4 w-80 h-80 bg-purple-500 rounded-full mix-blend-screen filter blur-3xl opacity-8"></div>
+        <div className="absolute bottom-1/4 left-1/3 w-72 h-72 bg-purple-700 rounded-full mix-blend-screen filter blur-3xl opacity-8"></div>
+        <div className="absolute bottom-0 right-1/3 w-96 h-96 bg-purple-600 rounded-full mix-blend-screen filter blur-3xl opacity-8"></div>
+      </div>
+      {/* Banner section with background image */}
+      <div
+        className="w-screen h-[400px] bg-cover bg-no-repeat ml-[calc(-50vw+50%)] relative overflow-hidden"
+        style={{
+          backgroundImage: `url(https://storage.googleapis.com/simula-public/assets/mockups/20250121165637.png)`,
+          backgroundPosition: 'center -50px',
+        }}
+      >
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage: 'linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, transparent 70%)',
+          }}
+        />
+        <div className="absolute bottom-[125px] left-0 right-0 flex justify-center">
+          <img
+            src="https://storage.googleapis.com/simula-public/assets/mockups/Play%20Now.png"
+            alt="Play Now"
+            className="h-24 object-contain"
+          />
         </div>
-        <div className="flex items-center gap-4">
-          <button className="text-white">
-            <Search className="size-4" />
-          </button>
-          <button className="text-white relative">
-            <Bell className="size-4" />
-          </button>
+        <div className="absolute bottom-[95px] left-0 right-0 text-center" style={{ paddingLeft: '15%', paddingRight: '15%' }}>
+          <p className="text-white font-bold text-[18px]">Why don't you shut up it's only a new student who cares?!</p>
+        </div>
+        <div className="absolute bottom-[25px] left-0 right-0 flex justify-center gap-2">
+          {[1, 2, 3, 4, 5].map((i) => {
+            const imageMap: { [key: number]: string } = {
+              1: 'https://storage.googleapis.com/simula-public/assets/mockups/1.png',
+              2: 'https://storage.googleapis.com/simula-public/assets/mockups/2.png',
+              3: 'https://storage.googleapis.com/simula-public/assets/mockups/20250121165637.png',
+              4: 'https://storage.googleapis.com/simula-public/assets/mockups/3.png',
+              5: 'https://storage.googleapis.com/simula-public/assets/mockups/4.png',
+            }
+            return (
+              <div
+                key={i}
+                className={`w-[50px] h-[65px] rounded-lg bg-cover ${
+                  i === 3
+                    ? 'border-2 border-white'
+                    : ''
+                }`}
+                style={{
+                  backgroundImage: `url(${imageMap[i]})`,
+                  backgroundPosition: 'center 0px',
+                  backgroundSize: 'cover',
+                }}
+              ></div>
+            )
+          })}
         </div>
       </div>
 
+      <div className="px-4 py-3">
+        <h2 className="text-white font-bold text-[24px]">⭐ Characters</h2>
+      </div>
+
       <div className="flex gap-2 px-4 py-4 overflow-x-auto scrollbar-hide">
-        {["For You", "Featured", "Scenes", "Voices"].map((tab) => (
+        {["For You", "Male", "Female", "Dynamic"].map((tab) => (
           <button
             key={tab}
             onClick={() => {
@@ -213,8 +257,8 @@ export function HomePage({ onCharacterSelect }: HomePageProps) {
                 setActiveTab(tab)
               }
             }}
-            className={`rounded-full font-medium whitespace-nowrap transition-colors text-xs px-5 py-1.5 ${
-              activeTab === tab ? "bg-white text-black" : "bg-transparent text-white border border-zinc-700"
+            className={`rounded-full font-medium whitespace-nowrap transition-colors text-sm px-6 py-2 ${
+              activeTab === tab ? "bg-white/20 text-white" : "bg-transparent text-white hover:bg-white/10"
             }`}
           >
             {tab}
@@ -222,63 +266,17 @@ export function HomePage({ onCharacterSelect }: HomePageProps) {
         ))}
       </div>
 
-      <div className="flex-1 px-4 pb-20 pr-2.5 pl-2.5">
-        {activeTab === "Featured" && (
-          <div className="grid grid-cols-2 gap-3">
-            {featuredCharacters.map((character) => (
-              <div key={character.id} className="flex flex-col">
-                <button
-                  onClick={() => handleCharacterClick(character)}
-                  className="relative rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300 hover:scale-[1.02]"
-                >
-                  {/* Character image */}
-                  <div className="aspect-[3/4] w-full relative">
-                    <img
-                      src={character.image || "/placeholder.svg"}
-                      alt={character.name}
-                      className="w-full object-cover transition-all duration-300 group-hover:scale-110 h-[55%]"
-                    />
-
-                    {character.name === "Wonder Woman" && (
-                      <div className="absolute bottom-[calc(45%+5px)] right-[5px] text-[10px] font-semibold rounded-md bg-zinc-600 text-background px-1.5 py-px">
-                        Sponsored
-                      </div>
-                    )}
-
-                    <div
-                      className="absolute bottom-0 left-0 right-0 bg-zinc-800 p-3 py-2.5 px-2.5"
-                      style={{ height: "45%" }}
-                    >
-                      <h4 className="text-white font-semibold mb-1 text-left leading-tight line-clamp-1 text-sm">
-                        {character.name}
-                      </h4>
-                      <p className="text-gray-400 text-xs mb-2 text-left line-clamp-1 leading-tight">
-                        {character.description}
-                      </p>
-                      <div className="flex items-center gap-1 text-gray-400 text-xs">
-                        <MessageCircle className="w-3 h-3" />
-                        <span className="text-xs">{character.chats}</span>
-                      </div>
-                    </div>
-                  </div>
-                </button>
-                {/* Author tag moved outside card */}
-                <p className="text-gray-500 text-xs mt-2 text-left px-1">@{character.username}</p>
-              </div>
-            ))}
-          </div>
-        )}
-
+      <div className="flex-1 pb-20 pt-4 w-screen ml-[calc(-50vw+50%)] px-[20px]">
         {activeTab === "For You" && (
-          <div className="grid grid-cols-2 gap-3">
-            {characters.map((character) => (
+          <div className="grid grid-cols-2 gap-[6px]">
+            {featuredCharacters.map((character) => (
               <button
                 key={character.id}
                 onClick={() => handleCharacterClick(character)}
                 className="relative rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300 hover:scale-[1.02]"
               >
                 {/* Character image */}
-                <div className="aspect-[3/4] w-full">
+                <div className="aspect-[9/14] w-full">
                   <img
                     src={character.image || "/placeholder.svg"}
                     alt={character.name}
@@ -287,67 +285,28 @@ export function HomePage({ onCharacterSelect }: HomePageProps) {
                 </div>
 
                 <div className="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-black via-black/90 to-transparent">
-                  <h4 className="text-white font-semibold text-base mb-1 text-left">{character.name}</h4>
-                  <p className="text-gray-400 text-xs mb-2 text-left">{character.description}</p>
-                  <div className="flex items-center gap-1 text-gray-400 text-xs">
-                    <MessageCircle className="w-3 h-3" />
-                    <span>{character.chats}</span>
-                  </div>
-                  <p className="text-gray-500 text-xs mt-1 text-left">@{character.username}</p>
+                  <h4 className="text-white font-semibold text-base text-left">{character.name}</h4>
                 </div>
               </button>
             ))}
           </div>
         )}
 
-        {activeTab === "Scenes" && (
-          <div className="grid grid-cols-2 gap-3">
-            {scenesCharacters.map((character) => (
-              <div key={character.id} className="flex flex-col">
-                <button
-                  onClick={() => handleCharacterClick(character)}
-                  className="relative rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300 hover:scale-[1.02]"
-                >
-                  {/* Character image */}
-                  <div className="aspect-[3/4] w-full relative">
-                    <img
-                      src={character.image || "/placeholder.svg"}
-                      alt={character.name}
-                      className="w-full h-full object-cover transition-all duration-300 group-hover:scale-110"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/20 to-black/70" />
-
-                    {character.name === "Monopoly World" && (
-                      <div className="absolute bottom-[60px] left-[10px] text-[10px] font-semibold rounded-md bg-zinc-600 text-background px-1.5 py-px">
-                        Sponsored
-                      </div>
-                    )}
-
-                    {/* Content overlaid on image */}
-                    <div className="absolute inset-0 flex flex-col justify-end p-4 py-2.5 px-2.5">
-                      <h4 className="text-white font-semibold mb-2 text-left leading-tight text-sm">
-                        {character.name}
-                      </h4>
-                      <div className="flex items-center gap-1.5 text-white text-xs">
-                        <UserPlus className="w-3.5 h-3.5" />
-                        <span className="text-xs">Select Character</span>
-                      </div>
-                    </div>
-                  </div>
-                </button>
-                <p className="text-gray-500 text-xs mt-2 text-left px-1">@{character.username}</p>
-              </div>
-            ))}
-          </div>
+        {activeTab === "Male" && (
+          <div className="grid grid-cols-2 gap-3">{/* Placeholder for Male tab content */}</div>
         )}
 
-        {activeTab === "Voices" && (
-          <div className="grid grid-cols-2 gap-3">{/* Placeholder for Voices tab content */}</div>
+        {activeTab === "Female" && (
+          <div className="grid grid-cols-2 gap-3">{/* Placeholder for Female tab content */}</div>
+        )}
+
+        {activeTab === "Dynamic" && (
+          <div className="grid grid-cols-2 gap-3">{/* Placeholder for Dynamic tab content */}</div>
         )}
       </div>
 
-      <div className="fixed bottom-0 left-0 right-0 bg-black border-t border-zinc-800 max-w-sm mx-auto">
-        <div className="flex items-center justify-around py-3 px-4 bg-zinc-900">
+      <div className="fixed bottom-0 left-0 right-0 bg-black border-t border-[#1a0f2e] max-w-sm mx-auto">
+        <div className="flex items-center justify-around py-3 px-4 bg-[#0a0613]">
           <button className="text-white">
             <Home className="w-6 h-6" />
           </button>

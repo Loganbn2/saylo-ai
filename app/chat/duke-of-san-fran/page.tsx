@@ -10,5 +10,11 @@ export default function DukeOfSanFranChatPage() {
     router.push("/")
   }
 
-  return <MobileChatDuke onBackClick={handleBackClick} />
+  return (
+    <MobileChatDuke
+      onBackClick={handleBackClick}
+      characterImage="/character-business-suit.png"
+      characterName="The Duke of San Fran"
+    />
+  )
 }

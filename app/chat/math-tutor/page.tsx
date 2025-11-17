@@ -10,5 +10,11 @@ export default function MathTutorChatPage() {
     router.push("/")
   }
 
-  return <MobileChatMathTutor onBackClick={handleBackClick} />
+  return (
+    <MobileChatMathTutor
+      onBackClick={handleBackClick}
+      characterImage="/images/design-mode/c.ai%20%282%29.png"
+      characterName="Tutor's Lounge"
+    />
+  )
 }

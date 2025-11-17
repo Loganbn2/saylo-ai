@@ -10,5 +10,5 @@ export default function CyberSamuraiChatPage() {
     router.push("/")
   }
 
-  return <MobileChatCyberSamurai onBackClick={handleBackClick} />
+  return <MobileChatCyberSamurai onBackClick={handleBackClick} characterImage="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/istockphoto-1369890290-612x612-OIHtGHqyPByakh1Ml1sH3TlC8xLedF.jpg" />
 }
