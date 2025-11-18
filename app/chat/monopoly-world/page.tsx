@@ -11,7 +11,7 @@ export default function MonopolyWorldChatPage() {
     <div className="min-h-screen bg-zinc-900 flex items-center justify-center">
       <div className="w-[375px] h-[750px] overflow-hidden flex flex-col">
         <GlobalHeader />
-        <MobileChatMonopolyWorld onBackClick={() => router.push("/")} characterImage="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/monop-ADG2dyFTUrtgP56FEFiLL8Dbm66wOY.png" />
+        <MobileChatMonopolyWorld onBackClick={() => router.push("/")} />
       </div>
     </div>
   )

@@ -17,7 +17,7 @@ export default function DukeOfSanFranChatPage() {
         <GlobalHeader />
         <MobileChatDuke
           onBackClick={handleBackClick}
-          characterImage="/character-business-suit.png"
+         
           characterName="The Duke of San Fran"
         />
       </div>

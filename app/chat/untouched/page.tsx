@@ -30,7 +30,7 @@ export default function UntouchedChatPage() {
         <div className="flex-1 overflow-y-auto">
           <MobileChat
             onBackClick={handleBackClick}
-            characterImage="https://storage.googleapis.com/simula-public/assets/mockups/1.png"
+           
             characterName="Untouched"
             initialMessage="I've been waiting to meet someone genuine... Someone who sees beyond the surface. Are you that person?"
             promptSuggestions={[
@@ -45,7 +45,7 @@ export default function UntouchedChatPage() {
           onClose={handleClosePopup}
           onNavigate={handleNavigateToWonderWoman}
           characterName="Wonder Woman"
-          characterImage="https://storage.googleapis.com/simula-public/assets/mockups/ww.jpg"
+         
           promotionText="Have you met Wonder Woman? She's an Amazonian warrior searching for someone worthy of her heart. Come explore a deeper connection with her."
         />
       </div>

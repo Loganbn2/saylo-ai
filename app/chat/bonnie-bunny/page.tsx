@@ -119,7 +119,7 @@ export default function BonnieBunnyChatPage() {
 
         <MobileChat
           onBackClick={handleBackClick}
-          characterImage="https://storage.googleapis.com/simula-public/assets/mockups/5.png"
+         
           characterName="Bonnie Bunny"
           initialMessage="Life's too short to be boring! Wanna have some fun with me? 💕"
           promptSuggestions={[

@@ -17,7 +17,7 @@ export default function ForbiddenCharmChatPage() {
         <GlobalHeader />
         <MobileChat
           onBackClick={handleBackClick}
-          characterImage="https://storage.googleapis.com/simula-public/assets/mockups/3.png"
+         
           characterName="Forbidden Charm"
           initialMessage="They say some things are forbidden for a reason... but I think rules are made to be broken. Especially with someone like you."
           promptSuggestions={[

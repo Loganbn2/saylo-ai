@@ -36,7 +36,7 @@ export default function HandOfTheQueenChatPage() {
             </div>
             <div className="flex-1 overflow-hidden">
               <BlackjackGame
-                characterImage="https://storage.googleapis.com/simula-public/assets/mockups/4.png"
+               
                 characterName="Hand of the Queen"
               />
             </div>
@@ -45,7 +45,7 @@ export default function HandOfTheQueenChatPage() {
 
         <MobileChat
           onBackClick={handleBackClick}
-          characterImage="https://storage.googleapis.com/simula-public/assets/mockups/4.png"
+         
           characterName="Hand of the Queen"
           initialMessage="I serve the crown with pride, but my heart belongs to someone worthy... Are you that person?"
           promptSuggestions={[

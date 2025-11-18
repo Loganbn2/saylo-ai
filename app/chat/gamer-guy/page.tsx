@@ -15,7 +15,7 @@ export default function GamerGuyPage() {
     <div className="min-h-screen bg-zinc-900 flex items-center justify-center">
       <div className="w-[375px] h-[750px] overflow-hidden flex flex-col">
         <GlobalHeader />
-        <MobileChatGamerGuy onBackClick={handleBackClick} characterImage="/gamer-guy-gaming-setup.jpg" />
+        <MobileChatGamerGuy onBackClick={handleBackClick} />
       </div>
     </div>
   )

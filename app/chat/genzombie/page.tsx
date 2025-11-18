@@ -15,7 +15,7 @@ export default function GenZombieChatPage() {
     <div className="min-h-screen bg-zinc-900 flex items-center justify-center">
       <div className="w-[375px] h-[750px] overflow-hidden flex flex-col">
         <GlobalHeader />
-        <MobileChat onBackClick={handleBackClick} characterImage="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/c.ai-7w4aRYUQ7VYEkwWcUlzzbu9s1Zex90.png" characterName="GenZombie" />
+        <MobileChat onBackClick={handleBackClick} characterName="GenZombie" />
       </div>
     </div>
   )

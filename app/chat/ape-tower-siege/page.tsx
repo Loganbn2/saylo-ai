@@ -11,7 +11,7 @@ export default function ApeTowerSiegeChatPage() {
     <div className="min-h-screen bg-zinc-900 flex items-center justify-center">
       <div className="w-[375px] h-[750px] overflow-hidden flex flex-col">
         <GlobalHeader />
-        <MobileChatApeTower onBackClick={() => router.push("/")} characterImage="/gorilla-soldier-city-tower.jpg" />
+        <MobileChatApeTower onBackClick={() => router.push("/")} />
       </div>
     </div>
   )

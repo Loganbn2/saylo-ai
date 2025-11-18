@@ -17,7 +17,7 @@ export default function RainyDayDaresChatPage() {
         <GlobalHeader />
         <MobileChat
           onBackClick={handleBackClick}
-          characterImage="https://storage.googleapis.com/simula-public/assets/mockups/2.png"
+         
           characterName="Rainy Day Dares"
           initialMessage="There's something thrilling about a rainy day with the right person... Want to do something daring with me?"
           promptSuggestions={[

@@ -11,7 +11,7 @@ export default function DogParkChatPage() {
     <div className="min-h-screen bg-zinc-900 flex items-center justify-center">
       <div className="w-[375px] h-[750px] overflow-hidden flex flex-col">
         <GlobalHeader />
-        <MobileChatDogPark onBackClick={() => router.push("/")} characterImage="/happy-dogs-playing-park.jpg" />
+        <MobileChatDogPark onBackClick={() => router.push("/")} />
       </div>
     </div>
   )
