@@ -33,7 +33,7 @@ export default function BonnieBunnyChatPage() {
       <div className="w-[375px] h-[750px] overflow-hidden flex flex-col">
         <GlobalHeader />
         {showAd && (
-        <div className="absolute left-0 right-0 z-50 transition-transform duration-500 ease-out translate-y-0" style={{ top: "16px" }}>
+        <div className={`absolute left-0 right-0 z-50 transition-transform duration-500 ease-out ${showAd ? "translate-y-0" : "-translate-y-[200%]"}`} style={{ top: "16px" }}>
           <div className="relative mx-4 bg-black/40 backdrop-blur-md rounded-2xl shadow-2xl p-4">
             <div className="flex items-start gap-3 mb-3">
               <div className="w-16 h-16 rounded-lg overflow-hidden flex-shrink-0 bg-zinc-800">
