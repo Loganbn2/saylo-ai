@@ -287,6 +287,19 @@ export function HomePage({ onCharacterSelect }: HomePageProps) {
                     />
                   </div>
 
+                  {/* DC Dark Legion overlay for Wonder Woman */}
+                  {character.id === 19 && (
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation()
+                        // Handle DC Dark Legion button click
+                      }}
+                      className="absolute top-3 left-3 bg-white/10 hover:bg-white/20 text-white font-semibold text-[10px] py-1 px-2 rounded-lg transition-colors whitespace-nowrap backdrop-blur-sm border border-yellow-500"
+                    >
+                      Download DC Dark Legion
+                    </button>
+                  )}
+
                   <div className="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-black via-black/90 to-transparent">
                     <h4 className="text-white font-semibold text-base text-left">{character.name}</h4>
                   </div>

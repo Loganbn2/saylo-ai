@@ -26,7 +26,7 @@ export function CharacterPromotionPopup({
 
   return (
     <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
-      <div className="bg-[#0a0613] rounded-3xl p-6 max-w-sm w-full relative border border-purple-500/30">
+      <div className="bg-[#0a0613] rounded-3xl p-6 max-w-[345px] w-full relative border border-purple-500/30">
         {/* Close button */}
         <button
           onClick={onClose}
