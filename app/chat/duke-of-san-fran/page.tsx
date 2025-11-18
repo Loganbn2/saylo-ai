@@ -1,6 +1,7 @@
 "use client"
 
 import { MobileChatDuke } from "@/components/mobile-chat-duke"
+import { GlobalHeader } from "@/components/global-header"
 import { useRouter } from "next/navigation"
 
 export default function DukeOfSanFranChatPage() {
@@ -11,10 +12,15 @@ export default function DukeOfSanFranChatPage() {
   }
 
   return (
-    <MobileChatDuke
-      onBackClick={handleBackClick}
-      characterImage="/character-business-suit.png"
-      characterName="The Duke of San Fran"
-    />
+    <div className="min-h-screen bg-zinc-900 flex items-center justify-center">
+      <div className="w-[375px] h-[750px] overflow-hidden flex flex-col">
+        <GlobalHeader />
+        <MobileChatDuke
+          onBackClick={handleBackClick}
+          characterImage="/character-business-suit.png"
+          characterName="The Duke of San Fran"
+        />
+      </div>
+    </div>
   )
 }

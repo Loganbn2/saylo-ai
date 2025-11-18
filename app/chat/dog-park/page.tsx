@@ -1,10 +1,18 @@
 "use client"
 
 import { MobileChatDogPark } from "@/components/mobile-chat-dog-park"
+import { GlobalHeader } from "@/components/global-header"
 import { useRouter } from "next/navigation"
 
 export default function DogParkChatPage() {
   const router = useRouter()
 
-  return <MobileChatDogPark onBackClick={() => router.push("/")} characterImage="/happy-dogs-playing-park.jpg" />
+  return (
+    <div className="min-h-screen bg-zinc-900 flex items-center justify-center">
+      <div className="w-[375px] h-[750px] overflow-hidden flex flex-col">
+        <GlobalHeader />
+        <MobileChatDogPark onBackClick={() => router.push("/")} characterImage="/happy-dogs-playing-park.jpg" />
+      </div>
+    </div>
+  )
 }

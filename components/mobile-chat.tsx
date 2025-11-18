@@ -24,6 +24,8 @@ interface MobileChatProps {
   initialMessage?: string
   promptSuggestions?: PromptSuggestion[]
   adSuggestion?: PromptSuggestion
+  gameButtonText?: string
+  onGameButtonClick?: () => void
 }
 
 const defaultMessages: Message[] = [
@@ -48,6 +50,8 @@ export function MobileChat({
   initialMessage,
   promptSuggestions = defaultPromptSuggestions,
   adSuggestion,
+  gameButtonText,
+  onGameButtonClick,
 }: MobileChatProps) {
   const [message, setMessage] = useState("")
   const [messages, setMessages] = useState<Message[]>(
@@ -69,7 +73,7 @@ export function MobileChat({
   }
 
   return (
-    <div className="max-w-sm mx-auto bg-[#0a0613] text-white h-screen flex flex-col relative overflow-hidden">
+    <div className="w-full h-full bg-[#0a0613] text-white flex flex-col relative overflow-hidden">
       {/* Background overlay */}
       {characterImage && (
         <div
@@ -172,6 +176,14 @@ export function MobileChat({
                 <span className="text-yellow-100 text-[14px]">{adSuggestion.text}</span>
               </div>
               <span className="text-yellow-300/70 text-xs">Sponsored</span>
+            </button>
+          )}
+          {gameButtonText && onGameButtonClick && (
+            <button
+              onClick={onGameButtonClick}
+              className="bg-yellow-500/20 rounded-2xl px-5 py-3 flex items-center justify-center hover:bg-yellow-500/30 transition-colors text-left border border-yellow-500/40"
+            >
+              <span className="text-yellow-100 text-[14px] font-medium">{gameButtonText}</span>
             </button>
           )}
         </div>

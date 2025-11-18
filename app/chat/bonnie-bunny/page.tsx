@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react"
 import { MobileChat } from "@/components/mobile-chat"
+import { GlobalHeader } from "@/components/global-header"
 import { useRouter } from "next/navigation"
 import { X, ChevronRight } from "lucide-react"
 
@@ -28,8 +29,10 @@ export default function BonnieBunnyChatPage() {
   }
 
   return (
-    <>
-      {showAd && (
+    <div className="min-h-screen bg-zinc-900 flex items-center justify-center">
+      <div className="w-[375px] h-[750px] overflow-hidden flex flex-col">
+        <GlobalHeader />
+        {showAd && (
         <div className="fixed top-2 left-4 right-4 z-50 transition-all duration-500">
           <div className="backdrop-blur-md rounded-2xl shadow-lg p-3 bg-transparent max-w-sm mx-auto">
             <div className="flex items-start gap-3 mb-3">
@@ -114,16 +117,17 @@ export default function BonnieBunnyChatPage() {
         </div>
       )}
 
-      <MobileChat
-        onBackClick={handleBackClick}
-        characterImage="https://storage.googleapis.com/simula-public/assets/mockups/5.png"
-        characterName="Bonnie Bunny"
-        initialMessage="Life's too short to be boring! Wanna have some fun with me? 💕"
-        promptSuggestions={[
-          { emoji: "✨", text: "Tell me what turns you on" },
-          { emoji: "✨", text: "Let's do something spontaneous" },
-        ]}
-      />
-    </>
+        <MobileChat
+          onBackClick={handleBackClick}
+          characterImage="https://storage.googleapis.com/simula-public/assets/mockups/5.png"
+          characterName="Bonnie Bunny"
+          initialMessage="Life's too short to be boring! Wanna have some fun with me? 💕"
+          promptSuggestions={[
+            { emoji: "✨", text: "Tell me what turns you on" },
+            { emoji: "✨", text: "Let's do something spontaneous" },
+          ]}
+        />
+      </div>
+    </div>
   )
 }

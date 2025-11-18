@@ -183,7 +183,7 @@ export function HomePage({ onCharacterSelect }: HomePageProps) {
   }
 
   return (
-    <div className="w-screen bg-[#0a0613] text-white min-h-screen flex flex-col relative overflow-hidden">
+    <div className="w-full h-full bg-[#0a0613] text-white flex flex-col relative overflow-hidden">
       {/* Blurred purple lights background */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-1/4 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-purple-600 rounded-full mix-blend-screen filter blur-3xl opacity-10"></div>
@@ -192,120 +192,124 @@ export function HomePage({ onCharacterSelect }: HomePageProps) {
         <div className="absolute bottom-1/4 left-1/3 w-72 h-72 bg-purple-700 rounded-full mix-blend-screen filter blur-3xl opacity-8"></div>
         <div className="absolute bottom-0 right-1/3 w-96 h-96 bg-purple-600 rounded-full mix-blend-screen filter blur-3xl opacity-8"></div>
       </div>
-      {/* Banner section with background image */}
-      <div
-        className="w-screen h-[400px] bg-cover bg-no-repeat ml-[calc(-50vw+50%)] relative overflow-hidden"
-        style={{
-          backgroundImage: `url(https://storage.googleapis.com/simula-public/assets/mockups/20250121165637.png)`,
-          backgroundPosition: 'center -50px',
-        }}
-      >
+
+      {/* Scrollable content area */}
+      <div className="flex-1 overflow-y-auto pb-20 relative z-10">
+        {/* Banner section with background image */}
         <div
-          className="absolute inset-0"
+          className="w-full h-[400px] bg-cover bg-no-repeat relative overflow-hidden flex-shrink-0"
           style={{
-            backgroundImage: 'linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, transparent 70%)',
+            backgroundImage: `url(https://storage.googleapis.com/simula-public/assets/mockups/20250121165637.png)`,
+            backgroundPosition: 'center -50px',
           }}
-        />
-        <div className="absolute bottom-[125px] left-0 right-0 flex justify-center">
-          <img
-            src="https://storage.googleapis.com/simula-public/assets/mockups/Play%20Now.png"
-            alt="Play Now"
-            className="h-24 object-contain"
-          />
-        </div>
-        <div className="absolute bottom-[95px] left-0 right-0 text-center" style={{ paddingLeft: '15%', paddingRight: '15%' }}>
-          <p className="text-white font-bold text-[18px]">Why don't you shut up it's only a new student who cares?!</p>
-        </div>
-        <div className="absolute bottom-[25px] left-0 right-0 flex justify-center gap-2">
-          {[1, 2, 3, 4, 5].map((i) => {
-            const imageMap: { [key: number]: string } = {
-              1: 'https://storage.googleapis.com/simula-public/assets/mockups/1.png',
-              2: 'https://storage.googleapis.com/simula-public/assets/mockups/2.png',
-              3: 'https://storage.googleapis.com/simula-public/assets/mockups/20250121165637.png',
-              4: 'https://storage.googleapis.com/simula-public/assets/mockups/3.png',
-              5: 'https://storage.googleapis.com/simula-public/assets/mockups/4.png',
-            }
-            return (
-              <div
-                key={i}
-                className={`w-[50px] h-[65px] rounded-lg bg-cover ${
-                  i === 3
-                    ? 'border-2 border-white'
-                    : ''
-                }`}
-                style={{
-                  backgroundImage: `url(${imageMap[i]})`,
-                  backgroundPosition: 'center 0px',
-                  backgroundSize: 'cover',
-                }}
-              ></div>
-            )
-          })}
-        </div>
-      </div>
-
-      <div className="px-4 py-3">
-        <h2 className="text-white font-bold text-[24px]">⭐ Characters</h2>
-      </div>
-
-      <div className="flex gap-2 px-4 py-4 overflow-x-auto scrollbar-hide">
-        {["For You", "Male", "Female", "Dynamic"].map((tab) => (
-          <button
-            key={tab}
-            onClick={() => {
-              if (tab !== "For You" && tab !== "Voices") {
-                setActiveTab(tab)
-              }
+        >
+          <div
+            className="absolute inset-0"
+            style={{
+              backgroundImage: 'linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, transparent 70%)',
             }}
-            className={`rounded-full font-medium whitespace-nowrap transition-colors text-sm px-6 py-2 ${
-              activeTab === tab ? "bg-white/20 text-white" : "bg-transparent text-white hover:bg-white/10"
-            }`}
-          >
-            {tab}
-          </button>
-        ))}
-      </div>
-
-      <div className="flex-1 pb-20 pt-4 w-screen ml-[calc(-50vw+50%)] px-[20px]">
-        {activeTab === "For You" && (
-          <div className="grid grid-cols-2 gap-[6px]">
-            {featuredCharacters.map((character) => (
-              <button
-                key={character.id}
-                onClick={() => handleCharacterClick(character)}
-                className="relative rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300 hover:scale-[1.02]"
-              >
-                {/* Character image */}
-                <div className="aspect-[9/14] w-full">
-                  <img
-                    src={character.image || "/placeholder.svg"}
-                    alt={character.name}
-                    className="w-full h-full object-cover transition-all duration-300 group-hover:scale-110"
-                  />
-                </div>
-
-                <div className="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-black via-black/90 to-transparent">
-                  <h4 className="text-white font-semibold text-base text-left">{character.name}</h4>
-                </div>
-              </button>
-            ))}
+          />
+          <div className="absolute bottom-[145px] left-0 right-0 flex justify-center">
+            <img
+              src="https://storage.googleapis.com/simula-public/assets/mockups/Play%20Now.png"
+              alt="Play Now"
+              className="h-24 object-contain"
+            />
           </div>
-        )}
+          <div className="absolute bottom-[110px] left-0 right-0 text-center px-3">
+            <p className="text-white font-bold text-[18px]">Why don't you shut up it's only a new student who cares?!</p>
+          </div>
+          <div className="absolute bottom-[25px] left-0 right-0 flex justify-center gap-2">
+            {[1, 2, 3, 4, 5].map((i) => {
+              const imageMap: { [key: number]: string } = {
+                1: 'https://storage.googleapis.com/simula-public/assets/mockups/1.png',
+                2: 'https://storage.googleapis.com/simula-public/assets/mockups/2.png',
+                3: 'https://storage.googleapis.com/simula-public/assets/mockups/20250121165637.png',
+                4: 'https://storage.googleapis.com/simula-public/assets/mockups/3.png',
+                5: 'https://storage.googleapis.com/simula-public/assets/mockups/4.png',
+              }
+              return (
+                <div
+                  key={i}
+                  className={`w-[50px] h-[65px] rounded-lg bg-cover ${
+                    i === 3
+                      ? 'border-2 border-white'
+                      : ''
+                  }`}
+                  style={{
+                    backgroundImage: `url(${imageMap[i]})`,
+                    backgroundPosition: 'center 0px',
+                    backgroundSize: 'cover',
+                  }}
+                ></div>
+              )
+            })}
+          </div>
+        </div>
 
-        {activeTab === "Male" && (
-          <div className="grid grid-cols-2 gap-3">{/* Placeholder for Male tab content */}</div>
-        )}
+        <div className="px-4 py-3">
+          <h2 className="text-white font-bold text-[24px]">⭐ Characters</h2>
+        </div>
 
-        {activeTab === "Female" && (
-          <div className="grid grid-cols-2 gap-3">{/* Placeholder for Female tab content */}</div>
-        )}
+        <div className="flex gap-2 px-4 py-4 overflow-x-auto scrollbar-hide">
+          {["For You", "Male", "Female", "Dynamic"].map((tab) => (
+            <button
+              key={tab}
+              onClick={() => {
+                if (tab !== "For You" && tab !== "Voices") {
+                  setActiveTab(tab)
+                }
+              }}
+              className={`rounded-full font-medium whitespace-nowrap transition-colors text-sm px-6 py-2 ${
+                activeTab === tab ? "bg-white/20 text-white" : "bg-transparent text-white hover:bg-white/10"
+              }`}
+            >
+              {tab}
+            </button>
+          ))}
+        </div>
 
-        {activeTab === "Dynamic" && (
-          <div className="grid grid-cols-2 gap-3">{/* Placeholder for Dynamic tab content */}</div>
-        )}
+        <div className="pt-4 w-full px-[20px]">
+          {activeTab === "For You" && (
+            <div className="grid grid-cols-2 gap-[6px]">
+              {featuredCharacters.map((character) => (
+                <button
+                  key={character.id}
+                  onClick={() => handleCharacterClick(character)}
+                  className="relative rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300 hover:scale-[1.02]"
+                >
+                  {/* Character image */}
+                  <div className="aspect-[9/14] w-full">
+                    <img
+                      src={character.image || "/placeholder.svg"}
+                      alt={character.name}
+                      className="w-full h-full object-cover transition-all duration-300 group-hover:scale-110"
+                    />
+                  </div>
+
+                  <div className="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-black via-black/90 to-transparent">
+                    <h4 className="text-white font-semibold text-base text-left">{character.name}</h4>
+                  </div>
+                </button>
+              ))}
+            </div>
+          )}
+
+          {activeTab === "Male" && (
+            <div className="grid grid-cols-2 gap-3">{/* Placeholder for Male tab content */}</div>
+          )}
+
+          {activeTab === "Female" && (
+            <div className="grid grid-cols-2 gap-3">{/* Placeholder for Female tab content */}</div>
+          )}
+
+          {activeTab === "Dynamic" && (
+            <div className="grid grid-cols-2 gap-3">{/* Placeholder for Dynamic tab content */}</div>
+          )}
+        </div>
       </div>
 
-      <div className="fixed bottom-0 left-0 right-0 bg-black border-t border-[#1a0f2e] max-w-sm mx-auto">
+      <div className="fixed bottom-0 left-1/2 transform -translate-x-1/2 w-[375px] bg-black border-t border-[#1a0f2e] z-1000">
         <div className="flex items-center justify-around py-3 px-4 bg-[#0a0613]">
           <button className="text-white">
             <Home className="w-6 h-6" />
