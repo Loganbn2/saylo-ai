@@ -21,10 +21,10 @@ export default function HandOfTheQueenChatPage() {
 
   return (
     <div className="min-h-screen bg-zinc-900 flex items-center justify-center">
-      <div className="w-[375px] h-[750px] overflow-hidden flex flex-col">
+      <div className="w-[375px] h-[750px] overflow-hidden flex flex-col relative">
         <GlobalHeader />
         {showGameModal && (
-          <div className="fixed inset-0 z-50 bg-zinc-900 flex flex-col">
+          <div className="absolute inset-0 z-50 bg-zinc-900 flex flex-col">
             <div className="flex justify-end p-4 py-[7px] flex-shrink-0">
               <button
                 onClick={() => setShowGameModal(false)}
