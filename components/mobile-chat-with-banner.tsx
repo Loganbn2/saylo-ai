@@ -35,7 +35,7 @@ export function MobileChatWithBanner({
   }, [])
 
   return (
-    <div className="relative">
+    <div className="relative w-full h-full">
       <MobileChat
         onBackClick={onBackClick}
         characterImage={characterImage}
