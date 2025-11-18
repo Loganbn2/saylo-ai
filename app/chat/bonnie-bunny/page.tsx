@@ -30,7 +30,7 @@ export default function BonnieBunnyChatPage() {
 
   return (
     <div className="min-h-screen bg-zinc-900 flex items-center justify-center">
-      <div className="w-[375px] h-[750px] overflow-hidden flex flex-col">
+      <div className="w-[375px] h-[750px] overflow-hidden flex flex-col relative">
         <GlobalHeader />
         {showAd && (
         <div className={`absolute left-0 right-0 z-50 transition-transform duration-500 ease-out ${showAd ? "translate-y-0" : "-translate-y-[200%]"}`} style={{ top: "16px" }}>
