@@ -174,11 +174,12 @@ export function MobileChatWonderWoman({ onBackClick }: MobileChatWonderWomanProp
       {/* DC Dark Legion promotional banner */}
       {bannerVisible && (
         <div
-          className={`absolute left-0 right-0 top-16 z-20 transition-transform duration-500 ease-out ${
+          className={`absolute left-0 right-0 z-20 transition-transform duration-500 ease-out ${
             showBanner ? "translate-y-0" : "-translate-y-[200%]"
           }`}
+          style={{ top: "16px" }}
         >
-          <div className="relative mx-4 bg-zinc-800 rounded-2xl shadow-2xl p-4 py-3 px-3 my-2">
+          <div className="relative mx-4 bg-black/40 backdrop-blur-md rounded-2xl shadow-2xl p-4">
             <button
               onClick={() => setBannerVisible(false)}
               className="absolute top-2 right-2 z-10 bg-zinc-800 hover:bg-zinc-700 rounded-full p-1.5 transition-colors"

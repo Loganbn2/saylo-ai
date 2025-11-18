@@ -5,7 +5,7 @@ import { MobileChat } from "@/components/mobile-chat"
 import { GlobalHeader } from "@/components/global-header"
 import { useRouter } from "next/navigation"
 import { X } from "lucide-react"
-import UnoGame from "@/components/uno-game"
+import BlackjackGame from "@/components/blackjack-game"
 
 export default function HandOfTheQueenChatPage() {
   const router = useRouter()
@@ -35,7 +35,7 @@ export default function HandOfTheQueenChatPage() {
               </button>
             </div>
             <div className="flex-1 overflow-hidden">
-              <UnoGame
+              <BlackjackGame
                 characterImage="https://storage.googleapis.com/simula-public/assets/mockups/4.png"
                 characterName="Hand of the Queen"
               />

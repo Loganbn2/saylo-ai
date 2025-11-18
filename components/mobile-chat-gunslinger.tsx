@@ -78,11 +78,12 @@ export function MobileChatGunslinger({ onBackClick }: MobileChatGunslingerProps)
   return (
     <div className="max-w-sm mx-auto text-white h-screen flex flex-col relative">
       <div
-        className={`absolute top-2 left-4 right-4 z-50 transition-transform duration-500 ease-out ${
-          showAd ? "translate-y-0" : "-translate-y-[120%]"
+        className={`absolute left-0 right-0 z-50 transition-transform duration-500 ease-out ${
+          showAd ? "translate-y-0" : "-translate-y-[200%]"
         }`}
+        style={{ top: "16px" }}
       >
-        <div className="backdrop-blur-md rounded-2xl shadow-lg p-3 bg-transparent">
+        <div className="relative mx-4 backdrop-blur-md rounded-2xl shadow-lg p-3 bg-transparent">
           <div className="flex items-start gap-3 mb-3">
             <div className="w-16 h-16 rounded-lg overflow-hidden flex-shrink-0 bg-zinc-800">
               <img src="/state-of-survival-icon.png" alt="Shooter Game" className="w-full h-full object-cover" />
@@ -119,7 +120,7 @@ export function MobileChatGunslinger({ onBackClick }: MobileChatGunslingerProps)
       </div>
 
       {showGamePopup && (
-        <div className="fixed inset-0 z-50 bg-black">
+        <div className="absolute inset-0 z-50 bg-black">
           <button
             onClick={handleGameClose}
             className="absolute top-4 right-4 z-50 text-white hover:text-gray-300 transition-colors text-2xl font-bold w-10 h-10 flex items-center justify-center bg-zinc-800/80 rounded-full"
@@ -136,7 +137,7 @@ export function MobileChatGunslinger({ onBackClick }: MobileChatGunslingerProps)
       )}
 
       {showSurvivalModal && (
-        <div className="fixed inset-0 z-50 bg-black/95 flex items-center justify-center p-6">
+        <div className="absolute inset-0 z-50 bg-black/95 flex items-center justify-center p-6">
           <button
             onClick={() => setShowSurvivalModal(false)}
             className="absolute top-6 right-6 text-white hover:text-gray-300 transition-colors text-3xl font-bold w-12 h-12 flex items-center justify-center"
