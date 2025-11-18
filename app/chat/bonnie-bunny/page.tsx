@@ -33,8 +33,8 @@ export default function BonnieBunnyChatPage() {
       <div className="w-[375px] h-[750px] overflow-hidden flex flex-col">
         <GlobalHeader />
         {showAd && (
-        <div className="fixed top-2 left-4 right-4 z-50 transition-all duration-500">
-          <div className="backdrop-blur-md rounded-2xl shadow-lg p-3 bg-transparent max-w-sm mx-auto">
+        <div className="absolute left-0 right-0 z-50 transition-transform duration-500 ease-out translate-y-0" style={{ top: "16px" }}>
+          <div className="relative mx-4 bg-black/40 backdrop-blur-md rounded-2xl shadow-2xl p-4">
             <div className="flex items-start gap-3 mb-3">
               <div className="w-16 h-16 rounded-lg overflow-hidden flex-shrink-0 bg-zinc-800">
                 <img src="https://storage.googleapis.com/simula-public/assets/mockups/state.png" alt="Test Skills" className="w-full h-full object-cover" />
@@ -72,7 +72,7 @@ export default function BonnieBunnyChatPage() {
       )}
 
       {showGamePopup && (
-        <div className="fixed inset-0 z-50 bg-black flex flex-col items-center justify-center">
+        <div className="absolute inset-0 z-50 bg-black flex flex-col items-center justify-center">
           <button
             onClick={handleGameClose}
             className="absolute top-4 right-4 z-50 text-white hover:text-gray-300 transition-colors text-2xl font-bold w-10 h-10 flex items-center justify-center bg-zinc-800/80 rounded-full"
@@ -89,7 +89,7 @@ export default function BonnieBunnyChatPage() {
       )}
 
       {showSurvivalModal && (
-        <div className="fixed inset-0 z-50 bg-black/95 flex items-center justify-center p-6">
+        <div className="absolute inset-0 z-50 bg-black/95 flex items-center justify-center p-6">
           <button
             onClick={() => setShowSurvivalModal(false)}
             className="absolute top-6 right-6 text-white hover:text-gray-300 transition-colors text-3xl font-bold w-12 h-12 flex items-center justify-center"
