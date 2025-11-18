@@ -216,7 +216,7 @@ export default function BlackjackGame({
           <div className="flex items-start gap-4">
             <div className="flex-shrink-0">
               <img
-                src="/baba-casino.png"
+                src="https://storage.googleapis.com/simula-public/assets/imgs/400x400ia-75.png"
                 alt="Baba Casino"
                 className="h-[94px] w-[94px] rounded-xl"
               />
