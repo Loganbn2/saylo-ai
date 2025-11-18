@@ -216,7 +216,7 @@ export default function BlackjackGame({
           <div className="flex items-start gap-4">
             <div className="flex-shrink-0">
               <img
-                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/baba-casino-FZvKQn8qR9kLmNpQwXyZ1A2B3C4D5E6F.png"
+                src="/baba-casino.png"
                 alt="Baba Casino"
                 className="h-[94px] w-[94px] rounded-xl"
               />
