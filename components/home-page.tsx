@@ -173,6 +173,10 @@ interface HomePageProps {
 export function HomePage({ onCharacterSelect }: HomePageProps) {
   const router = useRouter()
   const [activeTab, setActiveTab] = useState("For You")
+  const [showInfoMessage, setShowInfoMessage] = useState(true)
+  const [showQueenInfoMessage, setShowQueenInfoMessage] = useState(true)
+  const [showWonderWomanInfoMessage, setShowWonderWomanInfoMessage] = useState(true)
+  const [showBonnieBunnyInfoMessage, setShowBonnieBunnyInfoMessage] = useState(true)
 
   const handleCharacterClick = (character: Character) => {
     if (character.route) {
@@ -269,55 +273,130 @@ export function HomePage({ onCharacterSelect }: HomePageProps) {
           ))}
         </div>
 
-        <div className="pt-4 w-full px-[20px]">
+        <div className="pt-4 w-full relative overflow-visible">
+          {/* Info boxes positioned absolutely relative to this container */}
           {activeTab === "For You" && (
-            <div className="grid grid-cols-2 gap-[6px]">
-              {featuredCharacters.map((character) => (
-                <button
-                  key={character.id}
-                  onClick={() => handleCharacterClick(character)}
-                  className="relative rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300 hover:scale-[1.02]"
-                >
-                  {/* Character image */}
-                  <div className="aspect-[9/14] w-full">
-                    <img
-                      src={character.image || "/placeholder.svg"}
-                      alt={character.name}
-                      className="w-full h-full object-cover transition-all duration-300 group-hover:scale-110"
-                    />
-                  </div>
+            <>
+              {showInfoMessage && (
+                <div className="absolute left-[20px] top-[calc(25%-20px)] transform -translate-y-1/2 bg-blue-600 rounded-lg px-3 py-2 text-white text-xs text-left z-[10000] whitespace-normal animate-grow-shrink flex items-start justify-between w-40">
+                  <span>View sponsored suggestions and invitations to a sponsored chat here.</span>
+                  <button onClick={() => setShowInfoMessage(false)} className="ml-2 flex-shrink-0 hover:text-gray-300" type="button">
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                  </button>
+                </div>
+              )}
+              {showQueenInfoMessage && (
+                <div className="absolute left-[20px] top-[calc(75%+120px)] transform -translate-y-1/2 bg-blue-600 rounded-lg px-3 py-2 text-white text-xs text-left z-[10000] whitespace-normal animate-grow-shrink flex items-start justify-between w-40">
+                  <span>View a sponsored mini-game here.</span>
+                  <button onClick={() => setShowQueenInfoMessage(false)} className="ml-2 flex-shrink-0 hover:text-gray-300" type="button">
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                  </button>
+                </div>
+              )}
+              {showWonderWomanInfoMessage && (
+                <div className="absolute right-[20px] top-[calc(25%-20px)] transform -translate-y-1/2 bg-blue-600 rounded-lg px-3 py-2 text-white text-xs text-left z-[10000] whitespace-normal animate-grow-shrink flex items-start justify-between w-40">
+                  <span>View a sponsored character here.</span>
+                  <button onClick={() => setShowWonderWomanInfoMessage(false)} className="ml-2 flex-shrink-0 hover:text-gray-300" type="button">
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                  </button>
+                </div>
+              )}
+              {showBonnieBunnyInfoMessage && (
+                <div className="absolute right-[20px] top-[calc(75%+120px)] transform -translate-y-1/2 bg-blue-600 rounded-lg px-3 py-2 text-white text-xs text-left z-[10000] whitespace-normal animate-grow-shrink flex items-start justify-between w-40">
+                  <span>View a playable game demo here.</span>
+                  <button onClick={() => setShowBonnieBunnyInfoMessage(false)} className="ml-2 flex-shrink-0 hover:text-gray-300" type="button">
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                  </button>
+                </div>
+              )}
+            </>
+          )}
 
-                  {/* DC Dark Legion overlay for Wonder Woman */}
-                  {character.id === 19 && (
-                    <button
-                      onClick={(e) => {
-                        e.stopPropagation()
-                        // Handle DC Dark Legion button click
-                      }}
-                      className="absolute top-3 left-3 bg-white/10 hover:bg-white/20 text-white font-semibold text-[10px] py-1 px-2 rounded-lg transition-colors whitespace-nowrap backdrop-blur-sm border border-yellow-500"
-                    >
-                      Download DC Dark Legion
-                    </button>
-                  )}
+          {activeTab === "For You" && (
+            <div className="px-[20px]">
+              <div className="grid grid-cols-2 gap-[6px]">
+                {featuredCharacters.map((character) => (
+                  <div key={character.id}>
+                    {character.id === 18 ? (
+                      <button
+                        onClick={() => handleCharacterClick(character)}
+                        className="relative rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300 hover:scale-[1.02]"
+                      >
+                        {/* Character image */}
+                        <div className="aspect-[9/14] w-full">
+                          <img
+                            src={character.image || "/placeholder.svg"}
+                            alt={character.name}
+                            className="w-full h-full object-cover transition-all duration-300 group-hover:scale-110"
+                          />
+                        </div>
+                        <div className="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-black via-black/90 to-transparent">
+                          <h4 className="text-white font-semibold text-base text-left">{character.name}</h4>
+                        </div>
+                      </button>
+                    ) : (
+                      <div className="relative">
+                        {/* DC Dark Legion overlay for Wonder Woman */}
+                        {character.id === 19 && (
+                          <button
+                            onClick={() => {
+                              // Handle DC Dark Legion button click
+                            }}
+                            className="absolute top-3 left-3 bg-white/10 hover:bg-white/20 text-white font-semibold text-[10px] py-1 px-2 rounded-lg transition-colors whitespace-nowrap backdrop-blur-sm border border-yellow-500 z-10"
+                            type="button"
+                          >
+                            Download DC Dark Legion
+                          </button>
+                        )}
+                        <button
+                          onClick={() => handleCharacterClick(character)}
+                          className="relative rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300 hover:scale-[1.02]"
+                        >
+                          {/* Character image */}
+                          <div className="aspect-[9/14] w-full">
+                            <img
+                              src={character.image || "/placeholder.svg"}
+                              alt={character.name}
+                              className="w-full h-full object-cover transition-all duration-300 group-hover:scale-110"
+                            />
+                          </div>
 
-                  <div className="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-black via-black/90 to-transparent">
-                    <h4 className="text-white font-semibold text-base text-left">{character.name}</h4>
+                          <div className="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-black via-black/90 to-transparent">
+                            <h4 className="text-white font-semibold text-base text-left">{character.name}</h4>
+                          </div>
+                        </button>
+                      </div>
+                    )}
                   </div>
-                </button>
-              ))}
+                ))}
+              </div>
             </div>
           )}
 
           {activeTab === "Male" && (
-            <div className="grid grid-cols-2 gap-3">{/* Placeholder for Male tab content */}</div>
+            <div className="px-[20px]">
+              <div className="grid grid-cols-2 gap-3">{/* Placeholder for Male tab content */}</div>
+            </div>
           )}
 
           {activeTab === "Female" && (
-            <div className="grid grid-cols-2 gap-3">{/* Placeholder for Female tab content */}</div>
+            <div className="px-[20px]">
+              <div className="grid grid-cols-2 gap-3">{/* Placeholder for Female tab content */}</div>
+            </div>
           )}
 
           {activeTab === "Dynamic" && (
-            <div className="grid grid-cols-2 gap-3">{/* Placeholder for Dynamic tab content */}</div>
+            <div className="px-[20px]">
+              <div className="grid grid-cols-2 gap-3">{/* Placeholder for Dynamic tab content */}</div>
+            </div>
           )}
         </div>
       </div>

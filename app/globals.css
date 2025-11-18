@@ -156,3 +156,17 @@
     filter: blur(50px);
   }
 }
+
+/* Grow and shrink animation */
+@keyframes growShrink {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+.animate-grow-shrink {
+  animation: growShrink 2s ease-in-out infinite;
+}
